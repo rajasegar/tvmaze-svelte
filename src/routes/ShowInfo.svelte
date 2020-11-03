@@ -1,13 +1,16 @@
 <script>
   import { onMount } from 'svelte';
+  import Rating from '../Rating';
   let show = {
-    name: '',
+    name: 'Loading...',
     officialSite: '',
     genres: [],
     type: '',
     language: '',
     status: '',
-    rating: '',
+    rating: {
+      average: 0,
+    },
     premiered: '',
     image: {
       medium: ''
@@ -35,7 +38,7 @@
 <p>Runtime: {show.runtime}</p>
 
 <p>Premiered: {show.premiered}</p>
-<p>Rating: {show.rating}</p>
+<p>Rating: {show.rating.average} <Rating rating={show.rating.average} /></p>
 
 <p><a href={show.officialSite}>Website</a></p>
 <p>Genres: {show.genres.join(',')}</p>

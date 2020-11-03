@@ -27,7 +27,7 @@ text-align: center;
 <ul>
 {#each shows as { id, name, image }, i}
 <li>
-  <Link to="shows/{id}">{name}</Link>
+  <p><Link to="shows/{id}">{name}</Link></p>
 <img src={image.medium}/>
 </li>
 {/each}

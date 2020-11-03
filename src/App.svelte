@@ -15,6 +15,24 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  .navbar {
+    display: flex;
+    background: #000;
+  }
+
+  .navbar-link  {
+    padding: 1em;
+    color: #fff;
+    text-decoration: none;
+    margin:0;
+  }
+
+  .navbar-link:hover {
+    text-decoration: underline;
+    background: blueviolet;
+  }
+
   .App {
     text-align: center;
   }
@@ -57,11 +75,11 @@
 </style>
 
 <Router url="{url}">
-  <nav>
-    <Link to="/">Home</Link>
-    <Link to="people">People</Link>
-    <Link to="schedule">Schedule</Link>
-    <Link to="shows">Shows</Link>
+  <nav class="navbar">
+    <Link to="/"><p class="navbar-link">Home</p></Link>
+      <Link to="people"><p class="navbar-link">People</p></Link>
+        <Link to="schedule"><p class="navbar-link">Schedule</p></Link>
+          <Link to="shows"><p class="navbar-link">Shows</p></Link>
   </nav>
   <div>
     <Route path="people" component="{People}" />

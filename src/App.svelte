@@ -1,12 +1,13 @@
 <script>
-  import {onMount} from 'svelte';
-  let count = 0;
-  onMount(() => {
-    const interval = setInterval(() => count++, 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  });
+ import { Router, Link, Route } from "svelte-routing";
+  import Home from "./routes/Home.svelte";
+  import People from "./routes/People.svelte";
+  import Schedule from "./routes/Schedule.svelte";
+  import Shows from "./routes/Shows.svelte";
+  import ShowInfo from "./routes/ShowInfo.svelte";
+
+  export let url = "";
+
 </script>
 
 <style>
@@ -55,15 +56,19 @@
   }
 </style>
 
-<div class="App">
-  <header class="App-header">
-    <img src="/logo.svg" class="App-logo" alt="logo" />
-    <p>Edit <code>src/App.svelte</code> and save to reload.</p>
-    <p>Page has been open for <code>{count}</code> seconds.</p>
-    <p>
-      <a class="App-link" href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
-        Learn Svelte
-      </a>
-    </p>
-  </header>
-</div>
+<Router url="{url}">
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="people">People</Link>
+    <Link to="schedule">Schedule</Link>
+    <Link to="shows">Shows</Link>
+  </nav>
+  <div>
+    <Route path="people" component="{People}" />
+    <Route path="schedule" component="{Schedule}" />
+    <Route path="shows/:id" component="{ShowInfo}" />
+    <Route path="shows" component="{Shows}" />
+    <Route path="/"><Home /></Route>
+  </div>
+</Router>
+

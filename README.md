@@ -1,4 +1,7 @@
-# New Project
+# tvmaze-svelte
+TV Maze API demo in Svelte.js
+
+[Demo](https://tvmaze-svelte.surge.sh)
 
 > ✨ Bootstrapped with Create Snowpack App (CSA).
 
